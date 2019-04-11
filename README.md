@@ -50,8 +50,13 @@ console.log(fileContents)
 
 Before you run the code, read it carefully. **What do you think it’ll do?**
 
+It will return a buffer of binary data because we have not specified the encoding type.
+
 Run the code in your terminal with `node part-1.js`. **What happened? Was it
 what you expected?**
+
+It returned the word "Buffer" along with a series of bytes from the file.
+
 
 You’ll probably find that you get something with the word ‘`Buffer`’ and a bunch
 of weird letters and numbers. These are the bytes from our file, the raw data
@@ -69,8 +74,11 @@ Run your code and see what the difference is. So some research to answer these
 questions:
 
 - **What does utf-8 mean**
+UTF-8 (Unicode Transformation Format) is character encoding, capable of encoding all 1,112,064 valid code points in Unicode. The -8 is the code unit which represents 8-bits.
 - **Why does adding it change what our code does?**
+Adding this encoding type as a parameter now displays the list of names because by default, the method returns a buffer.
 - Extra: **what other things could we try adding instead of `utf-8`?**
+We can add utf-16 as the encoding.
 
 Now, `readFileSync` should be returning a _string_ containing the contents of
 our file.
@@ -84,7 +92,7 @@ Complete the following tasks:
   - Again, if you're not sure about this, try a search engine! 'javascript
     reverse array' is probably a good bet
 - Join the array of lines back together again
-  - Try coming up wiuth your own search for this one ;)
+  - Try coming up with your own search for this one ;)
 
 Now we’ve reversed the names, we can look at _writing_ (saving) the file.
 
@@ -129,9 +137,13 @@ In this exercise, we’re going to be working with JSON. Do some research and
 answer the following questions:
 
 - **What is JSON?**
+JSON stands for JavaScript Object Notation. It is a file format that uses human-readable text to transmit data objects consisting of key-value pairs and it is commonly used for asynchronous communications between browser and server.
 - **What’s it used for?**
+It is ued to transmit data objects between the client and the browser.
 - **What does it look like?**
+It is an object but every key and value are wrapped in double quotes.
 - **Where have we seen it before?**
+As objects.
 
 Take a look at `shopping-basket.json` and familiarise yourself with it's
 contents. This is JSON data for a shopping cart. It is an object with one
