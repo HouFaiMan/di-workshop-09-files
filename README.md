@@ -50,8 +50,13 @@ console.log(fileContents)
 
 Before you run the code, read it carefully. **What do you think it’ll do?**
 
+It will return a buffer of binary data because we have not specified the encoding type.
+
 Run the code in your terminal with `node part-1.js`. **What happened? Was it
 what you expected?**
+
+It returned the word "Buffer" along with a series of bytes from the file.
+
 
 You’ll probably find that you get something with the word ‘`Buffer`’ and a bunch
 of weird letters and numbers. These are the bytes from our file, the raw data
@@ -69,8 +74,11 @@ Run your code and see what the difference is. So some research to answer these
 questions:
 
 - **What does utf-8 mean**
+UTF-8 (Unicode Transformation Format) is character encoding, capable of encoding all 1,112,064 valid code points in Unicode. The -8 is the code unit which represents 8-bits.
 - **Why does adding it change what our code does?**
+Adding this encoding type as a parameter now displays the list of names because by default, the method returns a buffer.
 - Extra: **what other things could we try adding instead of `utf-8`?**
+We can add utf-16 as the encoding.
 
 Now, `readFileSync` should be returning a _string_ containing the contents of
 our file.
@@ -84,7 +92,7 @@ Complete the following tasks:
   - Again, if you're not sure about this, try a search engine! 'javascript
     reverse array' is probably a good bet
 - Join the array of lines back together again
-  - Try coming up wiuth your own search for this one ;)
+  - Try coming up with your own search for this one ;)
 
 Now we’ve reversed the names, we can look at _writing_ (saving) the file.
 
@@ -129,9 +137,13 @@ In this exercise, we’re going to be working with JSON. Do some research and
 answer the following questions:
 
 - **What is JSON?**
+JSON stands for JavaScript Object Notation. It is a file format that uses human-readable text to transmit data objects consisting of key-value pairs and it is commonly used for asynchronous communications between browser and server.
 - **What’s it used for?**
+It is ued to transmit data objects between the client and the browser.
 - **What does it look like?**
+It is an object but every key and value are wrapped in double quotes.
 - **Where have we seen it before?**
+As Object Literals.T
 
 Take a look at `shopping-basket.json` and familiarise yourself with it's
 contents. This is JSON data for a shopping cart. It is an object with one
@@ -144,6 +156,7 @@ part 1.**
 
 The data is still a string - before we can work with it as objects & arrays, we
 need to _parse_ it. Do some research: **what does parsing mean?**
+Parsing in programming means taking an input and converting it into their syntactic roles. An example of this would be parsing a JSON object which is wrapped between double quotes as a string and converting it into an object and their properties as respective data types such as arrays.
 
 Replace your console.log with lines of code like this:
 
@@ -154,7 +167,11 @@ console.log(data)
 
 **What do you think will change?**
 
+It will show the data as a JavaScript object and the properties are also shown correctly.
+
 Run the code. **What changed? Why?**
+
+The format of the data has changed. It is no longer shown as a string but now as a JavaScript object. This is because we called JSON.parse() which is an in-built JavaScript method that converts a string into their respective roles.
 
 We can _loop_ over each item in the basket with the following code:
 
@@ -166,7 +183,11 @@ for (var item of data.basket) {
 
 **How does this loop work?**
 
+It is using a "for-of" loop to iterate through the basket array. The item variable is temporarily representing each item of the basket when the loop is being executed and every time an iteration is made, the program outputs the name.
+
 **What happens when we change basket in the code? Why?**
+
+The program will throw an exception because the only property the data object has is "basket". Accessing any properties that aren't defined in the data object will throw an exception.
 
 Modify your program so that it prints out the quantity and total cost (price ×
 quantity) of each item. **Check your answers against this tweet:**
