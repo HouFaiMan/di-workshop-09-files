@@ -143,7 +143,7 @@ It is ued to transmit data objects between the client and the browser.
 - **What does it look like?**
 It is an object but every key and value are wrapped in double quotes.
 - **Where have we seen it before?**
-As Object Literals.T
+As Object Literals.
 
 Take a look at `shopping-basket.json` and familiarise yourself with it's
 contents. This is JSON data for a shopping cart. It is an object with one
