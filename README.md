@@ -143,7 +143,7 @@ It is ued to transmit data objects between the client and the browser.
 - **What does it look like?**
 It is an object but every key and value are wrapped in double quotes.
 - **Where have we seen it before?**
-As objects.
+As Object Literals.T
 
 Take a look at `shopping-basket.json` and familiarise yourself with it's
 contents. This is JSON data for a shopping cart. It is an object with one
@@ -156,6 +156,7 @@ part 1.**
 
 The data is still a string - before we can work with it as objects & arrays, we
 need to _parse_ it. Do some research: **what does parsing mean?**
+Parsing in programming means taking an input and converting it into their syntactic roles. An example of this would be parsing a JSON object which is wrapped between double quotes as a string and converting it into an object and their properties as respective data types such as arrays.
 
 Replace your console.log with lines of code like this:
 
@@ -166,7 +167,11 @@ console.log(data)
 
 **What do you think will change?**
 
+It will show the data as a JavaScript object and the properties are also shown correctly.
+
 Run the code. **What changed? Why?**
+
+The format of the data has changed. It is no longer shown as a string but now as a JavaScript object. This is because we called JSON.parse() which is an in-built JavaScript method that converts a string into their respective roles.
 
 We can _loop_ over each item in the basket with the following code:
 
@@ -178,7 +183,11 @@ for (var item of data.basket) {
 
 **How does this loop work?**
 
+It is using a "for-of" loop to iterate through the basket array. The item variable is temporarily representing each item of the basket when the loop is being executed and every time an iteration is made, the program outputs the name.
+
 **What happens when we change basket in the code? Why?**
+
+The program will throw an exception because the only property the data object has is "basket". Accessing any properties that aren't defined in the data object will throw an exception.
 
 Modify your program so that it prints out the quantity and total cost (price ×
 quantity) of each item. **Check your answers against this tweet:**
